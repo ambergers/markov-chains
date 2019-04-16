@@ -11,9 +11,9 @@ def open_and_read_file(file_path):
     """
 
     with open(file_path) as corpus:
-        corpus = corpus.read()
-        corpus.replace('\\n', ' ')
-        return corpus
+        new_corpus = corpus.read()
+        return new_corpus.replace('\n', ' ')
+
 
         # print(' Hello there \\n in the code')
 
@@ -45,28 +45,17 @@ def make_chains(text_string):
 
     text_string = text_string.split(' ')
     # Start with first word, loop from seocond word to end. 
-
-    output_dict = {}
-    
-    for i in range(len(text_string) -1):
-        current_tuple = (text_string[i], text_string[i + 1])
-        # output_dict[(previous_word, text_string[i])] = text_string[i + 1]
-        
-        try:
-            #next_word = text_string[i + 2]
-            output_dict.get[current_tuple, []] = output_dict[current_tuple].append(text_string[i + 1])
-
-        except:
-            output_dict[current_tuple] = []
-
-        # output_dict.get[current_tuple, []] = output_dict[current_tuple].append(text_string[i + 1]) 
-
-
-    print(output_dict)
-
+ 
     chains = {}
+    
+    for i in range(len(text_string) - 2):
+        current_tuple = (text_string[i], text_string[i + 1])
 
-    # your code goes here
+        if chains.get(current_tuple, 0) == 0:
+            chains[current_tuple] = [text_string[i + 2]]
+        else:
+            chains[current_tuple].append(text_string[i + 2])
+
 
     return chains
 
