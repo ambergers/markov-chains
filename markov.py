@@ -67,13 +67,13 @@ def make_text(chains):
 
 
     # random key from chains
-    tuple_ = choice(list(chains))
+    key_pair = choice(list(chains))
 
     try:
         while True:
-            word = choice(chains[tuple_])
+            word = choice(chains[key_pair])
             output_words.append(word)
-            tuple_ = (tuple_[1], word)
+            key_pair = (key_pair[1], word)
     except:
         return " ".join(output_words)
 
