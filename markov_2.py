@@ -1,7 +1,7 @@
 """Generate Markov text from text files."""
 
 from random import choice
-
+import sys
 
 def open_and_read_file(file_path, file_path2):
     """Take file path as string; return text as string.
@@ -91,9 +91,9 @@ def make_text(chains):
     
     return " ".join(output_words)
 
-input_path = "harry-potter.txt"
+input_path = sys.argv[1]
 
-input_path2 = "hitchhiker.txt"
+input_path2 = sys.argv[2]
 
 # Open the file and turn it into one long string
 input_text = open_and_read_file(input_path, input_path2)
@@ -105,3 +105,7 @@ chains = make_chains(input_text)
 random_text = make_text(chains)
 
 print(random_text)
+
+print(sys.argv[1])
+
+print("Number of arguments: " + str(len(sys.argv)))
