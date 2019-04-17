@@ -63,11 +63,24 @@ def make_chains(text_string):
 def make_text(chains):
     """Return text from chains."""
 
-    words = []
+    output_words = []
+
+
+    # random key from chains
+    tuple_ = choice(list(chains))
+
+    while tuple_ != ('I', 'am?'):
+        word = choice(chains[tuple_])
+        output_words.append(word)
+        tuple_ = (tuple_[1], word)
+
+
+
+
 
     # your code goes here
 
-    return " ".join(words)
+    return " ".join(output_words)
 
 
 input_path = "green-eggs.txt"
