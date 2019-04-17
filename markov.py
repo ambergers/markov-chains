@@ -69,18 +69,13 @@ def make_text(chains):
     # random key from chains
     tuple_ = choice(list(chains))
 
-    while tuple_ != ('I', 'am?'):
-        word = choice(chains[tuple_])
-        output_words.append(word)
-        tuple_ = (tuple_[1], word)
-
-
-
-
-
-    # your code goes here
-
-    return " ".join(output_words)
+    try:
+        while True:
+            word = choice(chains[tuple_])
+            output_words.append(word)
+            tuple_ = (tuple_[1], word)
+    except:
+        return " ".join(output_words)
 
 
 input_path = "green-eggs.txt"
